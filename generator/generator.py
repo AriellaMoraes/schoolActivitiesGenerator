@@ -1,4 +1,5 @@
 from models import Question
 
 questao = Question()
-print(questao)
+questao.save()
+questao.load()

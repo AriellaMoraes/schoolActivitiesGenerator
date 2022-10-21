@@ -1,12 +1,14 @@
+from lib import write, read
+
 class Question:
-    def __init__(self) -> None:
+    def __init__(self):
+        pk = None
         print('Questão iniciada')
 
-    def save ():
+    def save (self):
         '''Função que escreve em arquivo json'''
-        # with open(saida, 'w') as file:
-            # json.dump(resumo, file, indent=4)
-        pass
+        write({'questao': 0})
 
-    def load ():
-        pass
+    def load (self):
+        print(read())
+       
