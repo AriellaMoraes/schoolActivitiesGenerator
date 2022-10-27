@@ -33,7 +33,7 @@ class Question:
     def save(self):
         '''Salva objeto questao'''
         if not self.user:
-            raise Exception('User is not defined!')
+            raise Exception('self.user is not defined!')
         self.generate_pk()    
         dict_questao = {} 
         dict_questao['pk'] = self.pk
