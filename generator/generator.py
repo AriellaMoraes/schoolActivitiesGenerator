@@ -2,17 +2,14 @@
 # coding: utf-8
 from json import load
 from models import Question
+from models import User
 
-questao2 = Question()
-questao2.load()
-questao2.save()
+# instancia_question = Question(4)
+# instancia_question.question = "Qual o resultado de 2x3?"
+# instancia_question.update()
+# instancia_question.delete()
+# instancia_question.save()
 
-questao = Question()
-questao.question = 'Quanto é 2+2?'
-questao.pk = 1
-questao.alternatives = {'a': 5, 'b': 3, 'c': 4, 'd': 2 }
-questao.right_answer = 'c'
-questao.matter = 'portuguese'
-questao.theme = 'nouns'
-
-questao.save()
+instancia_user = User(2)
+instancia_user.username = ''
+instancia_user.delete()
