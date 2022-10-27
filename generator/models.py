@@ -1,16 +1,15 @@
 # !/usr/bin/env python
 # coding: utf-8
-from argparse import MetavarTypeHelpFormatter
-from multiprocessing.connection import answer_challenge
-from unicodedata import name
 from lib import write, read, get
 
 class Question:
-    file_name = 'questoes2.json'
-    #pergunta, alternativas, resposta correta, materia, tema, ativo
+    file_name = 'questoes.json'
     def __init__(self, pk = None):
+        # Declarando variaveis da instancia ===========
         self.pk = pk
         self.question = ''
+        self.user = None
+        
         if pk:
             questao = get(self.pk, self.file_name)
             if questao:
@@ -33,10 +32,13 @@ class Question:
 
     def save(self):
         '''Salva objeto questao'''
+        if not self.user:
+            raise Exception('User is not defined!')
         self.generate_pk()    
         dict_questao = {} 
         dict_questao['pk'] = self.pk
         dict_questao['question'] = self.question
+        dict_questao['user'] = self.user
         self.lista_questoes.append(dict_questao)   
         write(self.lista_questoes, self.file_name)
         print(f'Pk {self.pk} adicionado')
@@ -100,9 +102,3 @@ class User:
             if self.pk != user["pk"]:
                 new_users.append(user)
         write(new_users, self.file_name)
-
-
-
-
-
-
